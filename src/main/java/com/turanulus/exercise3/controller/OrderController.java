@@ -2,6 +2,7 @@ package com.turanulus.exercise3.controller;
 
 import com.turanulus.exercise3.model.Order;
 import com.turanulus.exercise3.model.Product;
+import com.turanulus.exercise3.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/orders")
 public class OrderController {
-  private ResponseEntity<Order> createOrder(List<Product> productList) {
+
+  private final OrderService orderService;
+
+  // specific size
+  public ResponseEntity<Order> createOrder(List<Product> productList) {
     return ResponseEntity.ok(new Order());
   }
+
+  // return order
 }

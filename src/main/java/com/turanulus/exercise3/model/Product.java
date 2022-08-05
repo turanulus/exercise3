@@ -3,10 +3,7 @@ package com.turanulus.exercise3.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -15,16 +12,34 @@ import java.util.UUID;
 @Entity(name = "product")
 public class Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
-    private String sku;
-    private BigDecimal price;
-    private String name;
-    private String description;
-    private String imageUrl;
-    private int shipmentDeliveryTimes;
-    private boolean active;
-    private Size size;
-    private int inventoryPerSize;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private UUID id;
+
+  @Column(name = "sku", updatable = false, nullable = false)
+  private String sku;
+
+  @Column(name = "price")
+  private BigDecimal price;
+
+  @Column(name = "name")
+  private String name;
+
+  @Column(name = "description")
+  private String description;
+
+  @Column(name = "image_url")
+  private String imageUrl;
+
+  @Column(name = "shipment_delivery_times")
+  private int shipmentDeliveryTimes;
+
+  @Column(name = "active")
+  private boolean active;
+
+  @Column(name = "size")
+  private Size size;
+
+  @Column(name = "inventory_per_size")
+  private int inventoryPerSize;
 }
